@@ -1,0 +1,64 @@
+.blog-content {
+  padding: 30px 0;
+
+  h2 {
+    font-size: 1.7rem;
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+  }
+  p {
+    &.date {
+      font-family: $heading-font;
+      font-weight: 500;
+      color: rgb(154, 154, 154);
+      font-style: italic;
+      margin-top: 15px;
+    }
+  }
+  &__body {
+    p {
+      margin-top: 25px;
+
+      a {
+        font-weight: bold;
+        color: black;
+      }
+    }
+    .wp-block-image {
+      position: relative;
+      padding: 20px 0 0;
+      img {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        object-fit: cover;
+      }
+      .wp-element-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        border: 2px solid black;
+        padding: 10px;
+        font-family: $heading-font;
+        font-style: italic;
+        font-weight: 500;
+        margin-top: 10px;
+        color: black;
+        font-size: 0.9rem;
+      }
+    }
+  }
+  button {
+    margin-top: 35px;
+    appearance: none;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+  @media (min-width: 768px) {
+    padding: 50px 0;
+  }
+}

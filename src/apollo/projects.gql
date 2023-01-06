@@ -1,0 +1,40 @@
+query GetProjects {
+  page(id: "Projects", idType: URI) {
+    template {
+      ... on Template_Projects {
+        templateName
+        projectsPage {
+          heading
+          subheading
+        }
+      }
+    }
+  }
+  projects(where: {orderby: {field: DATE, order: DESC}}) {
+    nodes {
+      id
+      title
+      featuredImage {
+        node {
+          sourceUrl(size: PROJECT)
+        }
+      }
+      projects {
+        title
+        body
+        companyLogo {
+          title
+          sourceUrl
+        }
+        clientLogo {
+          title
+          sourceUrl
+        }
+        button {
+          url
+          title
+        }
+      }
+    }
+  }
+}

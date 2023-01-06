@@ -1,0 +1,46 @@
+query HeaderQuery($slug: String!) {
+    # Site Logo
+    mediaItems(where: {name: "logo"}) {
+    nodes {
+      sizes
+      sourceUrl
+    }
+  }
+  # Front Page Check 
+  nodeByUri(uri: $slug) {
+    ... on Page {
+      id
+      isFrontPage
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      homepageSettings {
+        heroTitle
+        heroButton {
+          title
+          url
+        }
+      }
+    }
+    ... on ContentType {
+      name
+      pageForPosts {
+        isPostsPage
+        heroSettings {
+          title
+          subtitle
+        }
+        featuredImage {
+          node {
+            altText
+            sourceUrl
+            srcSet(size: HERO)
+          }
+        }
+      }
+    }
+  }
+}

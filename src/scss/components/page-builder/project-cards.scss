@@ -1,0 +1,133 @@
+.project-cards {
+  padding: 0 20px;
+
+  &__inner {
+    padding: 50px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 30px 0 -20px;
+    padding-bottom: 50px;
+    h2 {
+      text-align: center;
+    }
+
+    button {
+      appearance: none;
+      background: none;
+      border: 0;
+      margin-top: 15px;
+    }
+    @media (min-width: 768px) {
+      flex-direction: row;
+      margin: 50px -20px -20px;
+    }
+  }
+
+  &--component {
+    button {
+      appearance: none;
+      background: none;
+      border: 0;
+    }
+  }
+}
+
+.project-card {
+  margin: 0 0 20px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: black;
+  padding: 15px;
+  box-sizing: border-box;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    .project-card__company,
+    .project-card__client {
+      opacity: 0;
+    }
+    .project-card__text {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__client,
+  &__company {
+    transition: 0.4s all;
+  }
+
+  &__company {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      max-width: 35px;
+    }
+  }
+
+  &__client {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    max-width: 200px;
+    filter: brightness(0) invert(1);
+    img {
+      width: 100%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.2;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  &__text {
+    color: white;
+    text-align: center;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.4s all;
+    p {
+      margin-top: 10px;
+    }
+  }
+  @media (min-width: 768px) {
+    width: calc(33.333333% - 40px);
+    margin: 0 20px 20px;
+  }
+}

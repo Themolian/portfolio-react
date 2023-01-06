@@ -1,17 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import * as ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./scss/styles.scss";
+
+import Header from "./components/global/Header";
+import Homepage from "./pages/Home";
+import Projects from "./pages/Projects";
+import Blog from "./pages/blog/index";
+import BlogPost from "./pages/blog/BlogPost";
+import Contact from "./pages/Contact";
+import Footer from "./components/global/Footer";
+
+const client = new ApolloClient({
+  uri: process.env.REACT_APP_WPGRAPHQL_URL,
+  cache: new InMemoryCache(),
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <div className="site-wrap">
+        <Header />
+        <main className="main">
+          <div className="main-inner">
+            <Routes>
+              <Route index element={<Homepage />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  </ApolloProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

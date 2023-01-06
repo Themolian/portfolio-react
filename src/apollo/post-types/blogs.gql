@@ -1,0 +1,11 @@
+query {
+    posts {
+        nodes {
+            id
+            title
+            date
+            excerpt
+            slug
+        }
+    }
+}

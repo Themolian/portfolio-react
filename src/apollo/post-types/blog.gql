@@ -1,0 +1,7 @@
+query BlogPost($slug: ID!) {
+    post(id: $slug, idType: SLUG) {
+        title
+        content
+        date
+    }
+}

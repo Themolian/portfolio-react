@@ -1,0 +1,22 @@
+.projects {
+  .project-cards {
+    &__inner {
+      padding-top: 0;
+    }
+    &__cards {
+      @media (min-width: 768px) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+.projects-header {
+  text-align: center;
+  padding: 50px 0;
+
+  p {
+    font-family: $heading-font;
+    font-weight: 500;
+    margin-top: 15px;
+  }
+}

@@ -1,0 +1,22 @@
+.footer {
+  padding: 0 20px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  &-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: $heading-font;
+    padding: 20px 0;
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p,
+    a {
+      font-weight: 500;
+    }
+    a {
+      color: black;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+query {
+  page(id: "home", idType: URI) {
+    title
+    isFrontPage
+    featuredImage {
+      node {
+        sourceUrl(size: HERO)
+        altText
+      }
+    }
+    homepageSettings {
+      heroTitle
+      heroButton {
+        title
+        url
+      }
+    }
+    pageBuilder {
+      pageBuilder {
+        ... on Page_Pagebuilder_PageBuilder_TextImage {
+          title
+          body
+          fieldGroupName
+          imageOrientation
+          image {
+            altText
+            sourceUrl(size: CONTENT)
+          }
+        }
+        ... on Page_Pagebuilder_PageBuilder_ShowcaseCards {
+          fieldGroupName
+          title
+          cards {
+            title
+            body
+            icon {
+              altText
+              sourceUrl
+            }
+          }
+        }
+        ... on Page_Pagebuilder_PageBuilder_ProjectCards {
+          fieldGroupName
+          title
+          projects {
+            ... on Project {
+              id
+              projects {
+                title
+                body
+                button {
+                  title
+                  url
+                }
+                clientLogo {
+                  altText
+                  sourceUrl
+                }
+                companyLogo {
+                  altText
+                  sourceUrl
+                }
+              }
+              featuredImage {
+                node {
+                  altText
+                  sourceUrl(size: PROJECT)
+                  srcSet(size: PROJECT)
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

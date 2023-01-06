@@ -1,0 +1,22 @@
+.btn {
+  font-family: $heading-font;
+  padding: 10px 25px;
+  border: 3px solid black;
+  color: black;
+  display: block;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s all;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+
+  &--white {
+    color: white;
+    border: 3px solid white;
+    &:hover {
+      background-color: black;
+    }
+  }
+}

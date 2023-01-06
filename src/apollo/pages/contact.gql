@@ -1,0 +1,20 @@
+query {
+    page(id: "/contact", idType: URI) {
+        contactPage {
+            platforms {
+                title
+                platformList {
+                    title
+                    icon {
+                        altText
+                        sourceUrl
+                    }
+                    link {
+                        title
+                        url
+                    }
+                }
+            }
+        }
+    }
+}
